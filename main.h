@@ -1,6 +1,9 @@
-/* 
- * your comment header here
- */
+/******************************************************
+ * Name: Graziella Buitron
+ * Coding 06
+ * Purpose: To create a hash Table class/object with
+ * our standard struct.
+ *****************************************************/
 
 #ifndef MAIN_H
 #define MAIN_H
