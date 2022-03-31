@@ -10,16 +10,31 @@
 
 Hashtable::Hashtable(){
     count = 0;
-    LinkedList hashtable[HASHTABLESIZE];
+
+    for (int i = 0; i < HASHTABLESIZE; i++){
+        hashtable[i] = new LinkedList;
+    }
 }
 
 Hashtable::~Hashtable(){
-
+    for (int i = 0; i < HASHTABLESIZE; i++){
+        if (hashtable[i]){
+            delete hashtable[i];
+        }
+    }
 }
 
 
 bool Hashtable::insertEntry(int id, string *data){
     bool inserted = false;
+    int position = hash(id);
+
+    hashtable[position]->addNode(id, data);
+
+    if ( hashtable[position]->addNode(id, data)){
+        inserted = true;
+    }
+
     return inserted;
 
 }
@@ -40,6 +55,16 @@ int Hashtable::getCount(){
 
 void Hashtable::printTable(){
 
+    /*
+    for (int i = 0; i < HASHTABLESIZE; i++){
+        if (hashtable[i] != NULL){
+            cout << "Hashtable bin " << i+1 << " contents: " << hashtable[i]->printList() << endl;
+        }
+        else {
+            cout << "Hashtable bin " << i+1 << " is empty" << endl;
+        }
+    }
+    */
 }
 
 

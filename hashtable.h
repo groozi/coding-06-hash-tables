@@ -29,6 +29,7 @@ class Hashtable{
     private:
         int hash(int);
         int count;
+        LinkedList *hashtable[HASHTABLESIZE];
 };
 
 #endif //HASHTABLE_H
