@@ -51,29 +51,31 @@ int main() {
      */
     
     // create your hash table object here
+    Hashtable hashtable;
     
     // show it is empty by calling getCount and printTable
+    cout << "Current count: " << hashtable.getCount() << endl;
+    cout << "Printing table... " << endl;
+    hashtable.printTable();
     
     // try and put ALL the test data into the table and show what happens
+     for (int i = 0; i < testdatasize; i++){
+        if (hashtable.insertEntry(ids[i], &strs[i])){
+            cout << "inserted id:" << ids[i] << " and string: " << strs[i] << endl;
+        }else {
+            cout << "failed to insert id:" << ids[i] << " and string: " << strs[i] << endl;
+        }   
+        cout << endl;
+    }
+    cout << "Printing the hashtable: " << endl;
+    hashtable.printTable();
+    cout << endl;
+    cout << "Current count is: " << hashtable.getCount() << endl;
 
     // continue using and testing your table, add and remove data,
     // do whatever it takes to full test your object and prove it
     // is robust and can handle all use cases.
 
-    //creating the hash table
-    Hashtable hashtable;
-
-    for (int i = 0; i < testdatasize; i++){
-        if (hashtable.insertEntry(ids[i], &strs[i])){
-            cout << "inserted " << ids[i] << " " << strs[i] << endl;
-        }else {
-            cout << "failed to insert " << ids[i] << " " << strs[i] << endl;
-        }   
-        cout << endl;
-    }
-
-    hashtable.printTable();
-    cout << hashtable.getCount() << endl;
 
     cout << "getting data from id " << ids[testdatasize-3] << " " << hashtable.getData(ids[testdatasize-3]) << endl;
     cout << hashtable.getCount() << endl;

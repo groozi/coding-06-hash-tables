@@ -73,7 +73,6 @@ void Hashtable::printTable(){
     }
 }
 
-
 int Hashtable::hash(int id){
     return id % HASHTABLESIZE;
 }
