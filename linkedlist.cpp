@@ -1,7 +1,8 @@
 /**********************************************************
  * Name: Graziella Buitron
- * Coding 05
- * Purpose: To create a fully functional doubly linked list
+ * Coding 06
+ * Purpose: To create a hash Table class/object with
+ * our standard struct.
  *********************************************************/
 
 #include "linkedlist.h"
@@ -122,14 +123,23 @@ void LinkedList::printList(bool backward){
             position = position->next;
         }
         while (position){
-            std::cout << position->data.id << ": " << position->data.data << std::endl;
+            std::cout << position->data.id << ": " << position->data.data;
+
+            if(position->next != NULL){
+                std::cout << " -> ";
+            }
             position = position->prev;
         }
+        std::cout << std::endl;
     }else {
         while (position){
-            std::cout << position->data.id << ": " << position->data.data << std::endl;
+            std::cout << position->data.id << ": " << position->data.data;
+            if(position->next != NULL){
+                std::cout << " -> ";
+            } 
             position = position->next;
         }
+        std::cout << std::endl;
     }
 }
 

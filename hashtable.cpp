@@ -5,13 +5,10 @@
  * our standard struct.
  *****************************************************/
 
-
 #include "hashtable.h"
 
 Hashtable::Hashtable(){
     count = 0;
-
-    //LinkedList newList;
 
     for (int i = 0; i < HASHTABLESIZE; i++){
         LinkedList newList;
@@ -25,24 +22,17 @@ Hashtable::~Hashtable(){
     }
 }
 
-
 bool Hashtable::insertEntry(int id, string *data){
     bool inserted = false;
-    int position = hash(id);
-
+    
     if (id > 0 && *data != "/0"){
-        cout << "inserting entry " << id << " at position " << position << " in hash table.." << endl;
+        int position = hash(id);
 
         if (hashtable[position].addNode(id, data)){
             inserted = true;
             count++;
-        } else{
-            cout << "insert success" << endl;
         }
-    }else{
-        cout << "Entry id must be greater than 0 and data cannot be empty string" << endl;
     }
-
     return inserted;
 }
 
@@ -61,17 +51,11 @@ int Hashtable::getCount(){
 }
 
 void Hashtable::printTable(){
-
-    /*
     for (int i = 0; i < HASHTABLESIZE; i++){
-        if (hashtable[i] != NULL){
-            cout << "Hashtable bin " << i+1 << " contents: " << hashtable[i]->printList() << endl;
-        }
-        else {
-            cout << "Hashtable bin " << i+1 << " is empty" << endl;
-        }
+       cout << "List at hashtable index " << i << ": ";
+       hashtable[i].printList();
     }
-    */
+    
 }
 
 

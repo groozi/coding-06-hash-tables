@@ -62,17 +62,17 @@ int main() {
 
     //creating the hash table
     Hashtable hashtable;
+
+    for (int i = 0; i < testdatasize; i++){
+        if (hashtable.insertEntry(ids[i], &strs[i])){
+            cout << "inserted " << ids[i] << " " << strs[i] << endl;
+        }else {
+            cout << "failed to insert " << ids[i] << " " << strs[i] << endl;
+        }   
+        cout << endl;
+    }
+
     hashtable.printTable();
 
-    int id = 7;
-    string data = "hello";
-
-    if (hashtable.insertEntry(id, &data)){
-        cout << "inserted " << id << " " << data << endl;
-    }else {
-        cout << "insert failed" << endl;
-    };
-
-    
     return 0;
 }
