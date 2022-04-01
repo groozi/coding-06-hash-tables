@@ -73,6 +73,20 @@ int main() {
     }
 
     hashtable.printTable();
+    cout << hashtable.getCount() << endl;
+
+    cout << "getting data from id " << ids[testdatasize-3] << " " << hashtable.getData(ids[testdatasize-3]) << endl;
+    cout << hashtable.getCount() << endl;
+
+    cout << "removing " << ids[testdatasize-3] << endl;
+    if (hashtable.removeEntry(ids[testdatasize-3])){
+        cout << ids[testdatasize-3] << " successfully removed" << endl;
+    } else {
+        cout << "failed to remove " << ids[testdatasize-3] << endl;
+    }
+    hashtable.printTable();
+    cout << hashtable.getCount() << endl;
+
 
     return 0;
 }

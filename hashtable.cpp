@@ -36,13 +36,29 @@ bool Hashtable::insertEntry(int id, string *data){
     return inserted;
 }
 
-string Hashtable::getData(int){
-    string data;
-    return data;
+string Hashtable::getData(int id){
+    string dataReturn;
+    Data tempData;
+    int position = hash(id);
+
+    if (hashtable[position].exists(id)){
+        hashtable[position].getNode(id, &tempData);
+        dataReturn = tempData.data;
+    } else{
+        dataReturn = "/";
+    }
+
+    return dataReturn;
 }
 
 bool Hashtable::removeEntry(int id){
     bool removed = false;
+    int position = hash(id);
+
+    if (hashtable[position].deleteNode(id)){
+        removed = true;
+        count--;
+    }
     return removed;
 }
 
@@ -55,7 +71,6 @@ void Hashtable::printTable(){
        cout << "List at hashtable index " << i << ": ";
        hashtable[i].printList();
     }
-    
 }
 
 
