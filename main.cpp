@@ -60,9 +60,19 @@ int main() {
     // do whatever it takes to full test your object and prove it
     // is robust and can handle all use cases.
 
-    
-    
-    
+    //creating the hash table
+    Hashtable hashtable;
+    hashtable.printTable();
+
+    int id = 7;
+    string data = "hello";
+
+    if (hashtable.insertEntry(id, &data)){
+        cout << "inserted " << id << " " << data << endl;
+    }else {
+        cout << "insert failed" << endl;
+    };
+
     
     return 0;
 }
