@@ -36,6 +36,8 @@ bool Hashtable::insertEntry(int id, string *data){
     return inserted;
 }
 
+
+//delete the if statement with the exists method call, getNode returns bool. use that
 string Hashtable::getData(int id){
     string dataReturn;
     Data tempData;
@@ -45,7 +47,7 @@ string Hashtable::getData(int id){
         hashtable[position].getNode(id, &tempData);
         dataReturn = tempData.data;
     } else{
-        dataReturn = "/";
+        dataReturn = "";
     }
 
     return dataReturn;

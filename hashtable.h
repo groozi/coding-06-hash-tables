@@ -6,7 +6,7 @@
  *****************************************************/
 
 #ifndef HASHTABLE_H
-#define HASHTABLE_H
+#define HASHTABLE_HS
 
 #include <iostream>
 #include "linkedlist.h"
