@@ -43,9 +43,10 @@ string Hashtable::getData(int id){
     Data tempData;
 
     if (id > 0){
-        int position = hash(id);
+        int position = hash(id); 
 
-        if (hashtable[position].getNode(id, &tempData)){
+        //gets data from node in linkedlist if list is not empty and getNode returns true(found the node)
+        if(hashtable[position].getCount() != 0 && hashtable[position].getNode(id, &tempData)){
             dataReturn = tempData.data; 
         }else{
             dataReturn = "";
@@ -53,7 +54,7 @@ string Hashtable::getData(int id){
     }else{
         dataReturn = "";
     }
-
+    
     return dataReturn;
 }
 

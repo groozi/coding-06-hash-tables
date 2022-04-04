@@ -100,19 +100,20 @@ int main() {
         
     }
 
-    //calling getData method for random id from 0 to MAXID which is 1000
     cout << "calling getData for random id's from 0 to MAXID..." << endl;
-    int randId; 
+    int randId;
 
     for (int i = 0; i < BASE; i++){
         randId = rand() % MAXID;
-        cout << randId << endl;
+        cout << "getting " << randId << ".. ";
 
+        if(hashtable.getData((randId)) != ""){
+            cout << "found" << endl;
+        }
+        else{
+            cout << "not found" << endl;
+        }
     }
-
-
-
-
 
 
 /*
@@ -127,7 +128,6 @@ int main() {
     cout << hashtable.getCount() << endl;
 
     */
-
 
     return 0;
 }
