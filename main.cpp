@@ -90,11 +90,15 @@ int main() {
         randomIndex = rand() % testdatasize;
         cout << "getting " << ids[randomIndex] << endl;
 
-        /*
-        if (hashtable.getData(ids[randomIndex]) != NULL){
+        
+        if (hashtable.getData(ids[randomIndex]) != ""){
             cout << "found " << ids[randomIndex] << ": " << hashtable.getData(ids[randomIndex]) << endl;
         }
-        */
+        else {
+            cout << "could not find " << ids[randomIndex] << " in table" << endl;
+        }
+        cout << endl;
+        
     }
     cout << "-----------------------------------------" << endl;
 
