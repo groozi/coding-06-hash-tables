@@ -123,7 +123,7 @@ void LinkedList::printList(bool backward){
             position = position->next;
         }
         while (position){
-            std::cout << position->data.id << ": " << position->data.data;
+            std::cout << position->data.id;
 
             if(position->next != NULL){
                 std::cout << " -> ";
@@ -133,7 +133,7 @@ void LinkedList::printList(bool backward){
         std::cout << std::endl;
     }else {
         while (position){
-            std::cout << position->data.id << ": " << position->data.data;
+            std::cout << position->data.id;
             if(position->next != NULL){
                 std::cout << " -> ";
             } 

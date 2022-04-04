@@ -60,11 +60,15 @@ string Hashtable::getData(int id){
 
 bool Hashtable::removeEntry(int id){
     bool removed = false;
-    int position = hash(id);
 
-    if (hashtable[position].deleteNode(id)){
-        removed = true;
-        count--;
+    //if id is not valid, don't even bother calling deleteNode
+    if (id > 0){
+        int position = hash(id);
+
+        if (hashtable[position].deleteNode(id)){
+            removed = true;
+            count--;
+        }
     }
     return removed;
 }
