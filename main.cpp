@@ -82,7 +82,7 @@ int main() {
     // continue using and testing your table, add and remove data,
     // do whatever it takes to full test your object and prove it
     // is robust and can handle all use cases.
-    cout << "randomly getting entry data" << endl;
+    cout << "randomly getting entry data..." << endl;
 
     int randomIndex;  
 
@@ -90,7 +90,6 @@ int main() {
         randomIndex = rand() % testdatasize;
         cout << "getting " << ids[randomIndex] << endl;
 
-        
         if (hashtable.getData(ids[randomIndex]) != ""){
             cout << "found " << ids[randomIndex] << ": " << hashtable.getData(ids[randomIndex]) << endl;
         }
@@ -100,10 +99,6 @@ int main() {
         cout << endl;
         
     }
-    cout << "-----------------------------------------" << endl;
-
-    cout << "getting data from id " << ids[testdatasize-3] << " " << hashtable.getData(ids[testdatasize-3]) << endl;
-    cout << hashtable.getCount() << endl;
 
     cout << "removing " << ids[testdatasize-3] << endl;
     if (hashtable.removeEntry(ids[testdatasize-3])){

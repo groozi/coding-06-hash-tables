@@ -117,7 +117,7 @@ void LinkedList::printList(bool backward){
     Node* position = head;
 
     if(position == NULL){
-        std::cout << "List is empty" << std::endl;
+        std::cout << "list is empty" << std::endl;
     }else if (backward == true){
         while(position->next != NULL){
             position = position->next;

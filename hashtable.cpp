@@ -41,12 +41,16 @@ bool Hashtable::insertEntry(int id, string *data){
 string Hashtable::getData(int id){
     string dataReturn;
     Data tempData;
-    int position = hash(id);
 
-    if (hashtable[position].exists(id)){
-        hashtable[position].getNode(id, &tempData);
-        dataReturn = tempData.data;
-    } else{
+    if (id > 0){
+        int position = hash(id);
+
+        if (hashtable[position].getNode(id, &tempData)){
+            dataReturn = tempData.data; 
+        }else{
+            dataReturn = "";
+        }
+    }else{
         dataReturn = "";
     }
 
@@ -70,7 +74,7 @@ int Hashtable::getCount(){
 
 void Hashtable::printTable(){
     for (int i = 0; i < HASHTABLESIZE; i++){
-       cout << "List at hashtable index " << i << ": ";
+       cout << "list at hashtable index " << i << ": ";
        hashtable[i].printList();
     }
 }
