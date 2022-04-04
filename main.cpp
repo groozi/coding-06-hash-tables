@@ -51,26 +51,33 @@ int main() {
      */
     
     // create your hash table object here
+    cout << "creating the hashtable.." << endl;
     Hashtable hashtable;
+    cout << "hashtable created" << endl << endl;
     
     // show it is empty by calling getCount and printTable
-    cout << "Current count: " << hashtable.getCount() << endl;
-    cout << "Printing table... " << endl;
+    cout << "checking the current hastable..." << endl;
+    cout << "currently " << hashtable.getCount() << " entries in the hashtable" << endl << endl;
+    cout << "printing the table... " << endl;
     hashtable.printTable();
+    cout << endl;
     
     // try and put ALL the test data into the table and show what happens
      for (int i = 0; i < testdatasize; i++){
+        cout << "adding " << ids[i] << ": " << strs[i] << endl;
         if (hashtable.insertEntry(ids[i], &strs[i])){
-            cout << "inserted id:" << ids[i] << " and string: " << strs[i] << endl;
+            cout << "added successfully" << endl;
         }else {
-            cout << "failed to insert id:" << ids[i] << " and string: " << strs[i] << endl;
+            cout << "add failed" << endl;
         }   
         cout << endl;
     }
-    cout << "Printing the hashtable: " << endl;
+
+
+    cout << "printing the table... " << endl;
     hashtable.printTable();
     cout << endl;
-    cout << "Current count is: " << hashtable.getCount() << endl;
+    cout << "currently " << hashtable.getCount() << " entries in the hashtable" << endl << endl;
 
     // continue using and testing your table, add and remove data,
     // do whatever it takes to full test your object and prove it
