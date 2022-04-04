@@ -56,8 +56,8 @@ int main() {
     cout << "hashtable created" << endl << endl;
     
     // show it is empty by calling getCount and printTable
-    cout << "checking the current hastable..." << endl;
-    cout << "currently " << hashtable.getCount() << " entries in the hashtable" << endl << endl;
+    cout << "checking the current hashtable..." << endl;
+    cout << "currently " << hashtable.getCount() << " entries in the table" << endl << endl;
     cout << "printing the table... " << endl;
     hashtable.printTable();
     cout << endl;
@@ -88,17 +88,34 @@ int main() {
 
     for (int i = 0; i < testdatasize; i++){
         randomIndex = rand() % testdatasize;
-        cout << "getting " << ids[randomIndex] << endl;
+        cout << "getting " << ids[randomIndex] << "...";
 
         if (hashtable.getData(ids[randomIndex]) != ""){
-            cout << "found " << ids[randomIndex] << ": " << hashtable.getData(ids[randomIndex]) << endl;
+            cout << " found " << ids[randomIndex] << ": " << hashtable.getData(ids[randomIndex]) << endl;
         }
         else {
-            cout << "could not find " << ids[randomIndex] << " in table" << endl;
+            cout << " not found" << endl;
         }
         cout << endl;
         
     }
+
+    //calling getData method for random id from 0 to MAXID which is 1000
+    cout << "calling getData for random id's from 0 to MAXID..." << endl;
+    int randId; 
+
+    for (int i = 0; i < BASE; i++){
+        randId = rand() % MAXID;
+        cout << randId << endl;
+
+    }
+
+
+
+
+
+
+/*
 
     cout << "removing " << ids[testdatasize-3] << endl;
     if (hashtable.removeEntry(ids[testdatasize-3])){
@@ -108,6 +125,8 @@ int main() {
     }
     hashtable.printTable();
     cout << hashtable.getCount() << endl;
+
+    */
 
 
     return 0;
