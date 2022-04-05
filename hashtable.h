@@ -33,5 +33,3 @@ class Hashtable{
 };
 
 #endif //HASHTABLE_H
-
-
