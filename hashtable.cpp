@@ -37,7 +37,7 @@ bool Hashtable::insertEntry(int id, string *data){
 }
 
 string Hashtable::getData(int id){
-    string dataReturn;
+    string dataReturn = "";
     Data tempData;
 
     //only looks for entry if id is valid
@@ -47,11 +47,7 @@ string Hashtable::getData(int id){
         //only checks for entry/node if linkedlist at hashed position is not empty
         if(hashtable[position].getCount() != 0 && hashtable[position].getNode(id, &tempData)){
             dataReturn = tempData.data; 
-        }else{
-            dataReturn = "";
         }
-    }else{
-        dataReturn = "";
     }
     return dataReturn;
 }
@@ -80,6 +76,7 @@ void Hashtable::printTable(){
        cout << "list at hashtable index " << i << ": ";
        hashtable[i].printList();
     }
+    cout << endl;
 }
 
 int Hashtable::hash(int id){
