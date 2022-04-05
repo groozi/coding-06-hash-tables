@@ -36,16 +36,15 @@ bool Hashtable::insertEntry(int id, string *data){
     return inserted;
 }
 
-
-//delete the if statement with the exists method call, getNode returns bool. use that
 string Hashtable::getData(int id){
     string dataReturn;
     Data tempData;
 
+    //only looks for entry if id is valid
     if (id > 0){
         int position = hash(id); 
 
-        //only checks for node using getNode if the linkedlist at hashed position is not empty
+        //only checks for entry/node if linkedlist at hashed position is not empty
         if(hashtable[position].getCount() != 0 && hashtable[position].getNode(id, &tempData)){
             dataReturn = tempData.data; 
         }else{
@@ -54,14 +53,13 @@ string Hashtable::getData(int id){
     }else{
         dataReturn = "";
     }
-    
     return dataReturn;
 }
 
 bool Hashtable::removeEntry(int id){
     bool removed = false;
 
-    //if id is not valid, don't even bother calling deleteNode
+    //only looks for entry to delete if id is valid
     if (id > 0){
         int position = hash(id);
 
