@@ -45,7 +45,7 @@ string Hashtable::getData(int id){
     if (id > 0){
         int position = hash(id); 
 
-        //gets data from node in linkedlist if list is not empty and getNode returns true(found the node)
+        //only checks for node using getNode if the linkedlist at hashed position is not empty
         if(hashtable[position].getCount() != 0 && hashtable[position].getNode(id, &tempData)){
             dataReturn = tempData.data; 
         }else{

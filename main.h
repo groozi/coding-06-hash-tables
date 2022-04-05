@@ -18,6 +18,7 @@
 #define MAXID 100
 #define BASE 5
 #define OFFSET 20
+#define CHOICES 8
 
 using std::cout;
 using std::endl;

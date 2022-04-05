@@ -63,6 +63,7 @@ int main() {
     cout << endl;
     
     // try and put ALL the test data into the table and show what happens
+    cout << "inserting testdata into the table... " << endl;
      for (int i = 0; i < testdatasize; i++){
         cout << "adding " << ids[i] << ": " << strs[i] << ".. ";
         if (hashtable.insertEntry(ids[i], &strs[i])){
@@ -81,8 +82,9 @@ int main() {
     // continue using and testing your table, add and remove data,
     // do whatever it takes to full test your object and prove it
     // is robust and can handle all use cases.
-    cout << "calling getData for random id's from test data..." << endl;
 
+    //TESTING GETDATA
+    cout << "testing getData with random id's from test data..." << endl;
     int randomIndex;  
 
     for (int i = 0; i < testdatasize; i++){
@@ -98,7 +100,7 @@ int main() {
     }
     cout << endl;
 
-    cout << "calling getData for random id's from 0 to MAXID..." << endl;
+    cout << "testing getData with random id's from 0 to MAXID..." << endl;
     int randId;
 
     for (int i = 0; i < testdatasize; i++){
@@ -106,7 +108,7 @@ int main() {
         cout << "getting " << randId << ".. ";
 
         if(hashtable.getData((randId)) != ""){
-            cout << "found" << endl;
+            cout << "found: " << hashtable.getData(randId) << endl;
         }
         else{
             cout << "not found" << endl;
@@ -114,7 +116,7 @@ int main() {
     }
     cout << endl;
 
-    cout << "removing entries with random id's from testdata..." << endl; 
+    cout << "testing removeEntry with random id's from testdata..." << endl; 
 
     for (int i = 0; i < testdatasize; i++){
         randomIndex = rand() % testdatasize;
@@ -127,13 +129,17 @@ int main() {
             cout << "remove failed" << endl;
         }
     }
+
+        cout << endl;
+
+    cout << "checking the current hashtable..." << endl;
+    cout << "currently " << hashtable.getCount() << " entries in table" << endl << endl;
+  
     cout << endl;
 
-    /*
-
-    cout << "removing entries with random id's from 0 to MAXID..." << endl; 
+    cout << "testing removeEntry with random id's from 0 to MAXID..." << endl; 
     //deleting random id's from the table
-    for (int i = 0; i < testdatasize + BUFFERSIZE; i++){
+    for (int i = 0; i < testdatasize; i++){
         randId = rand() % MAXID;
 
         cout << "removing " << randId << ".. ";
@@ -143,7 +149,24 @@ int main() {
                 cout << " remove failed" << endl;
             }
     }
-    */
+    cout << endl;
+    
+    cout << "checking the current hashtable..." << endl;
+    cout << "currently " << hashtable.getCount() << " entries in table" << endl << endl;
+    cout << "printing the table... " << endl;
+    hashtable.printTable();
+    cout << endl;
+
+    cout << "clearing the hashtable..." << endl;
+    for(int i = 0; i < testdatasize; i++){
+        cout << "deleting " << ids[i] << ".. ";
+        if(hashtable.removeEntry(ids[i])){
+            cout << "remove successful" << endl;
+        }else{
+            cout << "remove failed" << endl;
+        }
+    }
+    cout << endl;
 
     cout << "checking the current hashtable..." << endl;
     cout << "currently " << hashtable.getCount() << " entries in table" << endl << endl;
@@ -151,7 +174,90 @@ int main() {
     hashtable.printTable();
     cout << endl;
 
+    cout << "performing randomized testing using id's from 0 to MAXID and data from test data..." << endl << endl;
 
+    int choice = rand() % CHOICES + 1;
+
+    for (int i = 0; i < testdatasize*BASE; i++){
+        randId = rand() % MAXID;
+        randomIndex = rand() % testdatasize;
+
+        switch(choice){
+            case 1: 
+
+            case 2: //testing insert entry with random data from test data
+                cout << "inserting " << ids[randomIndex] << ": " << strs[randomIndex] << ".. ";
+
+                if(hashtable.insertEntry(ids[randomIndex], &strs[randomIndex])){
+                    cout << "add success" << endl;
+                } else{
+                    cout << "add failed" << endl;
+                }
+                cout << endl;
+                break;
+
+            case 3: //testing removeEntry with random id's from test data
+                cout << "removing " << ids[randomIndex] << ".. ";
+
+                if (hashtable.removeEntry(ids[randomIndex])){
+                    cout << "remove successful" << endl;
+                }else {
+                    cout << "remove failed" << endl;
+                }
+                cout << endl;
+                break;
+
+            case 4: //testing removeEntry with random id's from 0 to MAXID
+                cout << "removing " << randId << ".. ";
+
+                if (hashtable.removeEntry(randId)){
+                    cout << "remove successful" << endl;
+                } else{
+                    cout << "remove failed" << endl;
+                }
+                cout << endl;
+                break;
+
+            case 5: //testing getData with random id's from test data
+                cout << "getting " << ids[randomIndex] << "..";
+
+                if (hashtable.getData(ids[randomIndex]) != ""){
+                    cout << " found: " << hashtable.getData(ids[randomIndex]) << endl;
+                }
+                else {
+                    cout << " not found" << endl;
+                }
+                cout << endl;
+                break;
+
+            case 6: 
+                //testing getData with random id's from 0 to MAXID
+                cout << "getting " << randId << ".. ";
+
+                if(hashtable.getData((randId)) != ""){
+                    cout << "found: " << hashtable.getData(randId) << endl;
+                }
+                else{
+                    cout << "not found" << endl;
+                }
+                cout << endl;
+                break;
+
+            case 7: 
+                //testing get count
+                cout << "currently " << hashtable.getCount() << " entries in table" << endl << endl;
+
+            case 8:
+                //testing printTable
+                cout << "printing the table.." << endl;
+                hashtable.printTable();
+                cout << endl;
+                break;
+
+        }
+        choice = rand() % CHOICES + 1;
+    }
+    cout << "testing complete" << endl;
 
     return 0;
 }
